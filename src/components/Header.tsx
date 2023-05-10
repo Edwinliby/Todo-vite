@@ -28,8 +28,6 @@ export function Header({ handleAddTask }: Props) {
     return (
         <header className="bg-[url('/mountain.jpg')] bg-cover bg-no-repeat flex justify-center items-center h-[200px] relative">
             <div className='absolute bg-gradient-to-r from-fuchsia-500/30 to-indigo-500/40 w-full h-full'></div>
-            
-            <p className='text-white font- absolute top-2 left-3 text-[1.5rem] font-semibold'>Welcome {localStorage.getItem('name')}</p>
 
             <button
                 onClick={logout}
@@ -37,11 +35,15 @@ export function Header({ handleAddTask }: Props) {
                 Logout <MdOutlineLogout size="25" />
             </button>
 
-            <div className="flex z-10 gap-1 pb-10 items-center justify-center">
-                <img src="/mu-w.png" alt="mu-todo" className="rotate-3 h-[5rem]" />
-                <span className="block h-[3px] bg-white w-4"></span>
-                <h1 className="text-white font-semibold text-[2rem]">Todo</h1>
+            <div className='flex flex-col z-10 absolute top-5'>
+                <div className="flex gap-1 items-center justify-center">
+                    <img src="/mu-w.png" alt="mu-todo" className="rotate-3 h-[5rem]" />
+                    <span className="block h-[3px] bg-white w-4"></span>
+                    <h1 className="text-white font-semibold text-[2rem]">Todo</h1>
+                </div>
+                <p className='text-white text-[1.5rem] font-semibold'>Welcome {localStorage.getItem('name')}</p>
             </div>
+
 
             <form onSubmit={handleSubmit} className="absolute h-[54px] bottom-2 w-full max-w-[736px] flex gap-2 px-4">
                 <input

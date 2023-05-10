@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/TaskList";
-import { TbTrash } from 'react-icons/tb';
 import Footer from "./components/Footer";
 
 const LOCAL_STORAGE_KEY = 'todo:tasks';
@@ -58,11 +57,6 @@ function Home() {
         setTasksAndSave(newTasks);
     }
 
-    const deleteAccount = (): void => {
-        localStorage.clear();
-        window.location.reload();
-    }
-
     return (
         <>
             <Header handleAddTask={addTask} />
@@ -71,12 +65,6 @@ function Home() {
                 onDelete={deleteTaskById}
                 onComplete={toggleTaskCompletedById}
             />
-
-            <button
-                onClick={deleteAccount}
-                className='text-black font-semibold absolute bottom-3 right-3 flex gap-1 items-center w-full justify-end'>
-                <TbTrash size="25" className="text-red-600 hover:scale-105" /> Delete Account
-            </button>
             <Footer/>
         </>
     )
